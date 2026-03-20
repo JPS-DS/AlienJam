@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+<defs>
+    <linearGradient id="marketSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a0a"/>
+      <stop offset="50%" style="stop-color:#3a1a2a"/>
+      <stop offset="100%" style="stop-color:#5a2a3a"/>
+    </linearGradient>
+    
+    <linearGradient id="neon1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff0066"/>
+      <stop offset="100%" style="stop-color:#ff66aa"/>
+    </linearGradient>
+    
+    <linearGradient id="neon2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00ffcc"/>
+      <stop offset="100%" style="stop-color:#66ffee"/>
+    </linearGradient>
+    
+    <linearGradient id="neon3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ffcc00"/>
+      <stop offset="100%" style="stop-color:#ffee66"/>
+    </linearGradient>
+    
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="signGlow">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+    </defs>
+<rect width="100%" height="100%" fill="url(#marketSky)"/>
+<circle cx="1156" cy="238" r="1.2786447908347005" fill="white" opacity="0.5"/>
+<circle cx="740" cy="53" r="1.1641017468662453" fill="white" opacity="0.5"/>
+<circle cx="1642" cy="152" r="1.438356707619223" fill="white" opacity="0.5"/>
+<circle cx="1460" cy="350" r="0.5432900082122415" fill="white" opacity="0.5"/>
+<circle cx="182" cy="349" r="1.0363472996606804" fill="white" opacity="0.5"/>
+<circle cx="1739" cy="111" r="0.9403512519799159" fill="white" opacity="0.5"/>
+<circle cx="1469" cy="109" r="0.8263452108383967" fill="white" opacity="0.5"/>
+<circle cx="754" cy="333" r="1.211554327772813" fill="white" opacity="0.5"/>
+<circle cx="700" cy="380" r="1.4695139481516235" fill="white" opacity="0.5"/>
+<circle cx="1095" cy="143" r="0.7578991447075796" fill="white" opacity="0.5"/>
+<circle cx="882" cy="307" r="0.7921738123643441" fill="white" opacity="0.5"/>
+<circle cx="1375" cy="223" r="1.268083193929273" fill="white" opacity="0.5"/>
+<circle cx="1513" cy="380" r="0.9597070345983418" fill="white" opacity="0.5"/>
+<circle cx="1453" cy="270" r="1.480861741624865" fill="white" opacity="0.5"/>
+<circle cx="141" cy="211" r="1.4985528778970498" fill="white" opacity="0.5"/>
+<circle cx="1270" cy="168" r="0.5863856944917891" fill="white" opacity="0.5"/>
+<circle cx="690" cy="245" r="0.7460545274289214" fill="white" opacity="0.5"/>
+<circle cx="412" cy="177" r="0.7314523615933379" fill="white" opacity="0.5"/>
+<circle cx="1429" cy="85" r="0.9072980126226834" fill="white" opacity="0.5"/>
+<circle cx="681" cy="95" r="0.755573130622276" fill="white" opacity="0.5"/>
+<circle cx="1814" cy="9" r="0.6197365341495455" fill="white" opacity="0.5"/>
+<circle cx="1094" cy="130" r="1.3244091270777418" fill="white" opacity="0.5"/>
+<circle cx="1110" cy="13" r="1.3058778046252084" fill="white" opacity="0.5"/>
+<circle cx="994" cy="314" r="1.3153682467126155" fill="white" opacity="0.5"/>
+<circle cx="1431" cy="160" r="1.201527353602366" fill="white" opacity="0.5"/>
+<circle cx="940" cy="222" r="1.1766595492051497" fill="white" opacity="0.5"/>
+<circle cx="951" cy="208" r="0.7097254737047667" fill="white" opacity="0.5"/>
+<circle cx="803" cy="135" r="1.0969682728013228" fill="white" opacity="0.5"/>
+<circle cx="1698" cy="103" r="0.7150269637140131" fill="white" opacity="0.5"/>
+<circle cx="207" cy="2" r="0.6062788103798183" fill="white" opacity="0.5"/>
+<circle cx="284" cy="377" r="1.2080916721657449" fill="white" opacity="0.5"/>
+<circle cx="210" cy="72" r="0.6850282081761402" fill="white" opacity="0.5"/>
+<circle cx="379" cy="69" r="0.7927410546716342" fill="white" opacity="0.5"/>
+<circle cx="548" cy="339" r="1.3169823202724622" fill="white" opacity="0.5"/>
+<circle cx="355" cy="396" r="0.5818055853918456" fill="white" opacity="0.5"/>
+<circle cx="1190" cy="54" r="0.5470047272668687" fill="white" opacity="0.5"/>
+<circle cx="76" cy="135" r="1.084885611135069" fill="white" opacity="0.5"/>
+<circle cx="1735" cy="315" r="1.4299905119707657" fill="white" opacity="0.5"/>
+<circle cx="708" cy="205" r="1.0007776926697436" fill="white" opacity="0.5"/>
+<circle cx="467" cy="58" r="1.1563411311738978" fill="white" opacity="0.5"/>
+<circle cx="192" cy="301" r="1.226666512486795" fill="white" opacity="0.5"/>
+<circle cx="979" cy="124" r="1.3534759912033096" fill="white" opacity="0.5"/>
+<circle cx="1589" cy="331" r="0.9112231583908024" fill="white" opacity="0.5"/>
+<circle cx="1411" cy="311" r="0.92145272255489" fill="white" opacity="0.5"/>
+<circle cx="367" cy="300" r="0.531831867491628" fill="white" opacity="0.5"/>
+<circle cx="1785" cy="211" r="0.8654725327711816" fill="white" opacity="0.5"/>
+<circle cx="1636" cy="173" r="1.409267115427808" fill="white" opacity="0.5"/>
+<circle cx="183" cy="25" r="1.1374796514729835" fill="white" opacity="0.5"/>
+<circle cx="895" cy="363" r="1.0636269715022708" fill="white" opacity="0.5"/>
+<circle cx="666" cy="180" r="1.4009007742330433" fill="white" opacity="0.5"/>
+<circle cx="1661" cy="215" r="1.2754809589603273" fill="white" opacity="0.5"/>
+<circle cx="1550" cy="160" r="1.3544855491427588" fill="white" opacity="0.5"/>
+<circle cx="533" cy="379" r="0.9959718980429733" fill="white" opacity="0.5"/>
+<circle cx="1196" cy="382" r="1.2585520491309627" fill="white" opacity="0.5"/>
+<circle cx="976" cy="234" r="0.9925749918145921" fill="white" opacity="0.5"/>
+<circle cx="595" cy="377" r="1.0363865187974377" fill="white" opacity="0.5"/>
+<circle cx="1761" cy="18" r="1.006086435957609" fill="white" opacity="0.5"/>
+<circle cx="3" cy="49" r="0.9013642754207679" fill="white" opacity="0.5"/>
+<circle cx="1130" cy="344" r="0.6662513506723581" fill="white" opacity="0.5"/>
+<circle cx="651" cy="348" r="1.1132039378684464" fill="white" opacity="0.5"/>
+<circle cx="1194" cy="59" r="1.0140149712132676" fill="white" opacity="0.5"/>
+<circle cx="1132" cy="261" r="1.286237393494648" fill="white" opacity="0.5"/>
+<circle cx="479" cy="316" r="0.7645187199646618" fill="white" opacity="0.5"/>
+<circle cx="1530" cy="199" r="0.944280243123999" fill="white" opacity="0.5"/>
+<circle cx="1753" cy="175" r="1.3429971357059083" fill="white" opacity="0.5"/>
+<circle cx="1509" cy="314" r="1.0113001869901355" fill="white" opacity="0.5"/>
+<circle cx="1602" cy="11" r="0.5120415460744289" fill="white" opacity="0.5"/>
+<circle cx="993" cy="363" r="0.5494281065983999" fill="white" opacity="0.5"/>
+<circle cx="355" cy="272" r="1.4434966127203819" fill="white" opacity="0.5"/>
+<circle cx="340" cy="193" r="0.852061107853102" fill="white" opacity="0.5"/>
+<circle cx="333" cy="86" r="1.3788145513354229" fill="white" opacity="0.5"/>
+<circle cx="1731" cy="347" r="0.7652978939064007" fill="white" opacity="0.5"/>
+<circle cx="1127" cy="372" r="1.4718582438089216" fill="white" opacity="0.5"/>
+<circle cx="836" cy="233" r="0.5874179337318466" fill="white" opacity="0.5"/>
+<circle cx="595" cy="316" r="0.9793519772010127" fill="white" opacity="0.5"/>
+<circle cx="725" cy="353" r="0.9682970722404491" fill="white" opacity="0.5"/>
+<circle cx="881" cy="321" r="0.7309248748476264" fill="white" opacity="0.5"/>
+<circle cx="1086" cy="199" r="1.472007416976496" fill="white" opacity="0.5"/>
+<circle cx="663" cy="362" r="1.053950110169963" fill="white" opacity="0.5"/>
+<circle cx="1109" cy="147" r="1.1605348245381926" fill="white" opacity="0.5"/>
+<rect y="700" width="1920" height="380" fill="#1a0a1a"/>
+<rect y="700" width="1920" height="10" fill="#ff0066" opacity="0.3" filter="url(#neonGlow)"/>
+
+        <rect x="100" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="110" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="120" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="122" y="512" width="156" height="31" fill="none" stroke="url(#neon1)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="200" y="535" text-anchor="middle" fill="url(#neon1)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">SPACE SNACKS</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="200" cy="700" rx="100" ry="30" fill="url(#neon1)" opacity="0.2"/>
+        <circle cx="256" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+<circle cx="191" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="180" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="121" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="139" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+
+        <rect x="400" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="410" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="420" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="422" y="512" width="156" height="31" fill="none" stroke="url(#neon2)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="500" y="535" text-anchor="middle" fill="url(#neon2)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">COSMIC CRYSTALS</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="500" cy="700" rx="100" ry="30" fill="url(#neon2)" opacity="0.2"/>
+        <circle cx="479" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="537" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="512" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="541" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="542" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+
+        <rect x="700" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="710" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="720" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="722" y="512" width="156" height="31" fill="none" stroke="url(#neon3)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="800" y="535" text-anchor="middle" fill="url(#neon3)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">ALIEN PETS</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="800" cy="700" rx="100" ry="30" fill="url(#neon3)" opacity="0.2"/>
+        <circle cx="854" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="762" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+<circle cx="833" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="733" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+<circle cx="785" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+
+        <rect x="1000" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="1010" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="1020" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="1022" y="512" width="156" height="31" fill="none" stroke="url(#neon1)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="1100" y="535" text-anchor="middle" fill="url(#neon1)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">TECH GADGETS</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="1100" cy="700" rx="100" ry="30" fill="url(#neon1)" opacity="0.2"/>
+        <circle cx="1069" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="1042" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+<circle cx="1061" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="1096" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="1077" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+
+        <rect x="1300" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="1310" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="1320" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="1322" y="512" width="156" height="31" fill="none" stroke="url(#neon2)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="1400" y="535" text-anchor="middle" fill="url(#neon2)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">RARE ARTIFACTS</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="1400" cy="700" rx="100" ry="30" fill="url(#neon2)" opacity="0.2"/>
+        <circle cx="1406" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+<circle cx="1452" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="1334" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="1426" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="1372" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+
+        <rect x="1600" y="550" width="200" height="150" fill="#2a1a2a" rx="5"/>
+        <rect x="1610" y="560" width="180" height="100" fill="#1a0a1a"/>
+        
+        <!-- Neon sign -->
+        <rect x="1620" y="510" width="160" height="35" fill="#0a0a0a" rx="5"/>
+        <rect x="1622" y="512" width="156" height="31" fill="none" stroke="url(#neon3)" stroke-width="2" rx="4" filter="url(#neonGlow)"/>
+        <text x="1700" y="535" text-anchor="middle" fill="url(#neon3)" font-family="Arial Black" font-size="14" filter="url(#signGlow)">COSTUMES</text>
+        
+        <!-- Glow from stall -->
+        <ellipse cx="1700" cy="700" rx="100" ry="30" fill="url(#neon3)" opacity="0.2"/>
+        <circle cx="1635" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="1716" cy="620" r="10" fill="#ffee66" filter="url(#neonGlow)"/>
+<circle cx="1686" cy="620" r="10" fill="#66ffee" filter="url(#neonGlow)"/>
+<circle cx="1722" cy="620" r="10" fill="#ff66aa" filter="url(#neonGlow)"/>
+<circle cx="1639" cy="620" r="10" fill="#aa66ff" filter="url(#neonGlow)"/>
+
+    <text x="960" y="200" text-anchor="middle" fill="url(#neon1)" font-family="Arial Black" font-size="80" filter="url(#neonGlow)">ALIEN MARKET</text>
+    <text x="960" y="250" text-anchor="middle" fill="url(#neon2)" font-family="Arial" font-size="24" opacity="0.8">★ TRADING HUB ★</text>
+    
+        <ellipse cx="1569" cy="266" rx="30" ry="10" fill="#3a2a3a"/>
+        <circle cx="1569" cy="271" r="5" fill="#00ffcc" filter="url(#neonGlow)"/>
+        
+        <ellipse cx="176" cy="316" rx="30" ry="10" fill="#3a2a3a"/>
+        <circle cx="176" cy="321" r="5" fill="#00ffcc" filter="url(#neonGlow)"/>
+        
+        <ellipse cx="1533" cy="202" rx="30" ry="10" fill="#3a2a3a"/>
+        <circle cx="1533" cy="207" r="5" fill="#00ffcc" filter="url(#neonGlow)"/>
+        
+        <ellipse cx="425" cy="487" rx="30" ry="10" fill="#3a2a3a"/>
+        <circle cx="425" cy="492" r="5" fill="#00ffcc" filter="url(#neonGlow)"/>
+        
+        <ellipse cx="991" cy="260" rx="30" ry="10" fill="#3a2a3a"/>
+        <circle cx="991" cy="265" r="5" fill="#00ffcc" filter="url(#neonGlow)"/>
+        <rect x="30" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="1509" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="389" y="705" width="40" height="3" fill="#ffcc00" filter="url(#neonGlow)"/>
+<rect x="563" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="1126" y="705" width="40" height="3" fill="#ffcc00" filter="url(#neonGlow)"/>
+<rect x="186" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="1617" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="557" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="1320" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="1866" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="234" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="934" y="705" width="40" height="3" fill="#ffcc00" filter="url(#neonGlow)"/>
+<rect x="472" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="267" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="133" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="493" y="705" width="40" height="3" fill="#00ffcc" filter="url(#neonGlow)"/>
+<rect x="698" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="58" y="705" width="40" height="3" fill="#ff0066" filter="url(#neonGlow)"/>
+<rect x="1612" y="705" width="40" height="3" fill="#ffcc00" filter="url(#neonGlow)"/>
+<rect x="418" y="705" width="40" height="3" fill="#ffcc00" filter="url(#neonGlow)"/>
+</svg>

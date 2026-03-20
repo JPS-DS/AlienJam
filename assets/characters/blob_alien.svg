@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+    <defs>
+        <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#ff88cc"/>
+            <stop offset="100%" style="stop-color:#cc44aa"/>
+        </linearGradient>
+        
+        <filter id="softGlow">
+            <feGaussianBlur stdDeviation="2"/>
+        </filter>
+        
+        <radialGradient id="eyeShine" cx="30%" cy="30%" r="50%">
+            <stop offset="0%" style="stop-color:#ffffff"/>
+            <stop offset="100%" style="stop-color:#000000"/>
+        </radialGradient>
+    </defs>
+    
+        <ellipse cx="128" cy="256" rx="60" ry="70" fill="url(#bodyGrad)">
+            <animate attributeName="ry" values="70;68;70" dur="1s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <ellipse cx="108" cy="246" rx="15" ry="18" fill="white"/>
+        <ellipse cx="148" cy="246" rx="15" ry="18" fill="white"/>
+        <circle cx="108" cy="248" r="8" fill="url(#eyeShine)"/>
+        <circle cx="148" cy="248" r="8" fill="url(#eyeShine)"/>
+        <circle cx="110" cy="244" r="3" fill="white"/>
+        <circle cx="150" cy="244" r="3" fill="white"/>
+        <path d="M 103 276 Q 128 296 153 276" fill="none" stroke="#aa3388" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="103" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        <ellipse cx="153" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        
+        <path d="M 128 186 L 128 156" stroke="#cc44aa" stroke-width="4" fill="none"/>
+        <circle cx="128" cy="151" r="8" fill="#ffcc00" filter="url(#softGlow)">
+            <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <ellipse cx="256" cy="266" rx="60" ry="70" fill="url(#bodyGrad)">
+            <animate attributeName="ry" values="70;68;70" dur="1s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <ellipse cx="236" cy="256" rx="15" ry="18" fill="white"/>
+        <ellipse cx="276" cy="256" rx="15" ry="18" fill="white"/>
+        <circle cx="236" cy="258" r="8" fill="url(#eyeShine)"/>
+        <circle cx="276" cy="258" r="8" fill="url(#eyeShine)"/>
+        <circle cx="238" cy="254" r="3" fill="white"/>
+        <circle cx="278" cy="254" r="3" fill="white"/>
+        <path d="M 231 286 Q 256 306 281 286" fill="none" stroke="#aa3388" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="236" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        <ellipse cx="276" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        
+        <path d="M 256 196 L 256 166" stroke="#cc44aa" stroke-width="4" fill="none"/>
+        <circle cx="256" cy="161" r="8" fill="#ffcc00" filter="url(#softGlow)">
+            <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        
+        <ellipse cx="384" cy="246" rx="60" ry="70" fill="url(#bodyGrad)">
+            <animate attributeName="ry" values="70;68;70" dur="1s" repeatCount="indefinite"/>
+        </ellipse>
+        
+        <ellipse cx="364" cy="236" rx="15" ry="18" fill="white"/>
+        <ellipse cx="404" cy="236" rx="15" ry="18" fill="white"/>
+        <circle cx="364" cy="238" r="8" fill="url(#eyeShine)"/>
+        <circle cx="404" cy="238" r="8" fill="url(#eyeShine)"/>
+        <circle cx="366" cy="234" r="3" fill="white"/>
+        <circle cx="406" cy="234" r="3" fill="white"/>
+        <path d="M 359 266 Q 384 286 409 266" fill="none" stroke="#aa3388" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="354" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        <ellipse cx="414" cy="326" rx="18" ry="10" fill="#cc44aa"/>
+        
+        <path d="M 384 176 L 384 146" stroke="#cc44aa" stroke-width="4" fill="none"/>
+        <circle cx="384" cy="141" r="8" fill="#ffcc00" filter="url(#softGlow)">
+            <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+        </circle>
+        </svg>

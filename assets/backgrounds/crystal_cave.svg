@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+<defs>
+    <linearGradient id="caveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a1a3a"/>
+      <stop offset="100%" style="stop-color:#0a0a2a"/>
+    </linearGradient>
+    
+    <linearGradient id="crystalGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a00aa"/>
+      <stop offset="100%" style="stop-color:#cc66ff"/>
+    </linearGradient>
+    
+    <linearGradient id="crystalGrad2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#00aa88"/>
+      <stop offset="100%" style="stop-color:#66ffdd"/>
+    </linearGradient>
+    
+    <linearGradient id="crystalGrad3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#aa0066"/>
+      <stop offset="100%" style="stop-color:#ff66aa"/>
+    </linearGradient>
+    
+    <filter id="crystalGlow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <radialGradient id="lightBeam" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" style="stop-color:#6666ff;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#6666ff;stop-opacity:0"/>
+    </radialGradient>
+    </defs>
+<rect width="100%" height="100%" fill="url(#caveGrad)"/>
+<polygon points="1748,0 1728,184 1768,184" fill="#1a1a3a"/>
+<polygon points="949,0 929,117 969,117" fill="#1a1a3a"/>
+<polygon points="1413,0 1393,182 1433,182" fill="#1a1a3a"/>
+<polygon points="758,0 738,64 778,64" fill="#1a1a3a"/>
+<polygon points="421,0 401,98 441,98" fill="#1a1a3a"/>
+<polygon points="1046,0 1026,74 1066,74" fill="#1a1a3a"/>
+<polygon points="344,0 324,185 364,185" fill="#1a1a3a"/>
+<polygon points="787,0 767,80 807,80" fill="#1a1a3a"/>
+<polygon points="845,0 825,179 865,179" fill="#1a1a3a"/>
+<polygon points="1088,0 1068,162 1108,162" fill="#1a1a3a"/>
+<polygon points="709,0 689,114 729,114" fill="#1a1a3a"/>
+<polygon points="774,0 754,75 794,75" fill="#1a1a3a"/>
+<polygon points="1908,0 1888,132 1928,132" fill="#1a1a3a"/>
+<polygon points="579,0 559,86 599,86" fill="#1a1a3a"/>
+<polygon points="861,0 841,190 881,190" fill="#1a1a3a"/>
+<polygon points="448,0 428,186 468,186" fill="#1a1a3a"/>
+<polygon points="1584,0 1564,117 1604,117" fill="#1a1a3a"/>
+<polygon points="1287,0 1267,104 1307,104" fill="#1a1a3a"/>
+<polygon points="40,0 20,53 60,53" fill="#1a1a3a"/>
+<polygon points="422,0 402,178 442,178" fill="#1a1a3a"/>
+<polygon points="684,0 664,198 704,198" fill="#1a1a3a"/>
+<polygon points="1894,0 1874,167 1914,167" fill="#1a1a3a"/>
+<polygon points="521,0 501,94 541,94" fill="#1a1a3a"/>
+<polygon points="1608,0 1588,169 1628,169" fill="#1a1a3a"/>
+<polygon points="387,0 367,71 407,71" fill="#1a1a3a"/>
+<polygon points="1638,0 1618,145 1658,145" fill="#1a1a3a"/>
+<polygon points="1668,0 1648,143 1688,143" fill="#1a1a3a"/>
+<polygon points="131,0 111,108 151,108" fill="#1a1a3a"/>
+<polygon points="425,0 405,156 445,156" fill="#1a1a3a"/>
+<polygon points="164,0 144,182 184,182" fill="#1a1a3a"/>
+<ellipse cx="981" cy="400" rx="100" ry="500" fill="url(#lightBeam)"/>
+<ellipse cx="799" cy="400" rx="100" ry="500" fill="url(#lightBeam)"/>
+<ellipse cx="1443" cy="400" rx="100" ry="500" fill="url(#lightBeam)"/>
+<polygon points="300,650 260,800 340,800" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="277,742 257,800 297,800" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="278,745 258,800 298,800" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="342,757 322,800 362,800" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="600,550 560,750 640,750" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="640,689 620,750 660,750" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="628,709 608,750 648,750" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="592,692 572,750 612,750" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1000,670 960,850 1040,850" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1023,794 1003,850 1043,850" fill="url(#crystalGrad3)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="999,819 979,850 1019,850" fill="url(#crystalGrad3)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1002,805 982,850 1022,850" fill="url(#crystalGrad3)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1400,560 1360,780 1440,780" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="1422,721 1402,780 1442,780" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1349,733 1329,780 1369,780" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1388,733 1368,780 1408,780" fill="url(#crystalGrad1)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1700,660 1660,820 1740,820" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1725,760 1705,820 1745,820" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1720,749 1700,820 1740,820" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<polygon points="1666,740 1646,820 1686,820" fill="url(#crystalGrad2)" opacity="0.7" filter="url(#crystalGlow)"/>
+<circle cx="840" cy="766" r="2.9073519629736873" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="713" cy="777" r="1.42961428413522" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="774" cy="662" r="2.7184165828792786" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1480" cy="473" r="1.5888224279815317" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="787" cy="166" r="2.9104874054458594" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="347" cy="199" r="1.8452687449836784" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="796" cy="701" r="2.8045843430471344" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="496" cy="280" r="1.0671504855936162" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="812" cy="644" r="1.0492343520610925" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1098" cy="547" r="1.2326878500505094" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="483" cy="1047" r="3.0588757161306774" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="532" cy="96" r="1.194972941844687" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1674" cy="990" r="1.4684340590781826" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1690" cy="787" r="2.433256385573395" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="957" cy="533" r="1.067853387366723" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="134" cy="739" r="2.5404447546651845" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1054" cy="269" r="2.780932906196938" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="657" cy="51" r="1.3916914426034654" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1550" cy="1055" r="1.0435307300803318" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="712" cy="402" r="1.0667648336147595" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1357" cy="13" r="2.873888997681706" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1495" cy="102" r="2.6353359203590907" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1411" cy="990" r="3.677633181605009" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="308" cy="658" r="1.3561718239397125" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="958" cy="70" r="3.1437842001079703" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="596" cy="841" r="3.093369638433464" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="559" cy="218" r="1.5564367648745137" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1264" cy="934" r="1.4988069314027208" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="346" cy="791" r="3.5725668272530187" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="448" cy="379" r="1.7178825371251043" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1305" cy="109" r="2.89579747158921" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="828" cy="923" r="1.0879861206503707" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="775" cy="760" r="3.574212118802876" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="998" cy="810" r="2.965658180538352" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="648" cy="820" r="3.5142298196898865" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="888" cy="982" r="3.1450937095226026" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="255" cy="1036" r="3.910160214452932" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="654" cy="437" r="3.666759206758147" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="799" cy="375" r="3.180819236613333" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1288" cy="545" r="3.141003376636261" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="637" cy="909" r="2.7468031738567613" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="910" cy="689" r="3.726947282483212" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1867" cy="348" r="1.877966811514058" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1755" cy="281" r="1.8454880074355113" fill="#cc66ff" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="95" cy="992" r="2.1818414560734367" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1809" cy="483" r="2.9265973954902167" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1717" cy="391" r="3.474568319546146" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="449" cy="989" r="1.4343943678294524" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1757" cy="590" r="1.6455038406893827" fill="#66ffdd" opacity="0.6" filter="url(#crystalGlow)"/>
+<circle cx="1666" cy="239" r="3.118622119486913" fill="#ff66aa" opacity="0.6" filter="url(#crystalGlow)"/>
+<rect y="900" width="1920" height="180" fill="#0a0a2a"/>
+<polygon points="1139,900 1129,879 1149,879" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="1201,900 1191,872 1211,872" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="378,900 368,877 388,877" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1686,900 1676,867 1696,867" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="419,900 409,860 429,860" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="148,900 138,863 158,863" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="90,900 80,860 100,860" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1239,900 1229,841 1249,841" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1277,900 1267,856 1287,856" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1264,900 1254,869 1274,869" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="179,900 169,840 189,840" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="1842,900 1832,861 1852,861" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="1155,900 1145,857 1165,857" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="339,900 329,844 349,844" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1853,900 1843,859 1863,859" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="793,900 783,857 803,857" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1462,900 1452,851 1472,851" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="589,900 579,874 599,874" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="329,900 319,850 339,850" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1367,900 1357,865 1377,865" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="494,900 484,853 504,853" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="985,900 975,845 995,845" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1744,900 1734,870 1754,870" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1652,900 1642,875 1662,875" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="791,900 781,866 801,866" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1425,900 1415,865 1435,865" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="646,900 636,843 656,843" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="735,900 725,865 745,865" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="796,900 786,860 806,860" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="988,900 978,858 998,858" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1129,900 1119,845 1139,845" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="464,900 454,844 474,844" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="695,900 685,866 705,866" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="140,900 130,847 150,847" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1319,900 1309,870 1329,870" fill="url(#crystalGrad1)" filter="url(#crystalGlow)"/>
+<polygon points="646,900 636,849 656,849" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="419,900 409,840 429,840" fill="url(#crystalGrad2)" filter="url(#crystalGlow)"/>
+<polygon points="1802,900 1792,857 1812,857" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1898,900 1888,880 1908,880" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+<polygon points="1387,900 1377,877 1397,877" fill="url(#crystalGrad3)" filter="url(#crystalGlow)"/>
+</svg>

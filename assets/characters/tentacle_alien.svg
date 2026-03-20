@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+    <defs>
+        <linearGradient id="tentacleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#66ddff"/>
+            <stop offset="100%" style="stop-color:#3399cc"/>
+        </linearGradient>
+    </defs>
+    <ellipse cx="128" cy="240" rx="50" ry="45" fill="url(#tentacleGrad)"/>
+        <ellipse cx="128" cy="245" rx="30" ry="35" fill="white"/>
+        <circle cx="128" cy="250" r="15" fill="#003366"/>
+        <circle cx="123" cy="242" r="5" fill="white"/>
+        
+            <path d="M 88 290 Q 88 330 88 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 88 290 Q 88 330 88 370;M 88 290 Q 98 330 93 370;M 88 290 Q 88 330 88 370" 
+                    dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 108 290 Q 108 330 108 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 108 290 Q 108 330 108 370;M 108 290 Q 118 330 113 370;M 108 290 Q 108 330 108 370" 
+                    dur="1.6s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 128 290 Q 128 330 128 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 128 290 Q 128 330 128 370;M 128 290 Q 138 330 133 370;M 128 290 Q 128 330 128 370" 
+                    dur="1.7s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 148 290 Q 148 330 148 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 148 290 Q 148 330 148 370;M 148 290 Q 158 330 153 370;M 148 290 Q 148 330 148 370" 
+                    dur="1.8s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 168 290 Q 168 330 168 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 168 290 Q 168 330 168 370;M 168 290 Q 178 330 173 370;M 168 290 Q 168 330 168 370" 
+                    dur="1.9s" repeatCount="indefinite"/>
+            </path>
+            <ellipse cx="256" cy="240" rx="50" ry="45" fill="url(#tentacleGrad)"/>
+        <ellipse cx="256" cy="245" rx="30" ry="35" fill="white"/>
+        <circle cx="261" cy="250" r="15" fill="#003366"/>
+        <circle cx="256" cy="242" r="5" fill="white"/>
+        
+            <path d="M 216 290 Q 221 330 226 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 216 290 Q 216 330 216 370;M 216 290 Q 226 330 221 370;M 216 290 Q 216 330 216 370" 
+                    dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 236 290 Q 231 330 226 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 236 290 Q 236 330 236 370;M 236 290 Q 246 330 241 370;M 236 290 Q 236 330 236 370" 
+                    dur="1.6s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 256 290 Q 261 330 266 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 256 290 Q 256 330 256 370;M 256 290 Q 266 330 261 370;M 256 290 Q 256 330 256 370" 
+                    dur="1.7s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 276 290 Q 271 330 266 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 276 290 Q 276 330 276 370;M 276 290 Q 286 330 281 370;M 276 290 Q 276 330 276 370" 
+                    dur="1.8s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 296 290 Q 301 330 306 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 296 290 Q 296 330 296 370;M 296 290 Q 306 330 301 370;M 296 290 Q 296 330 296 370" 
+                    dur="1.9s" repeatCount="indefinite"/>
+            </path>
+            <ellipse cx="384" cy="240" rx="50" ry="45" fill="url(#tentacleGrad)"/>
+        <ellipse cx="384" cy="245" rx="30" ry="35" fill="white"/>
+        <circle cx="379" cy="250" r="15" fill="#003366"/>
+        <circle cx="374" cy="242" r="5" fill="white"/>
+        
+            <path d="M 344 290 Q 339 330 334 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 344 290 Q 344 330 344 370;M 344 290 Q 354 330 349 370;M 344 290 Q 344 330 344 370" 
+                    dur="1.5s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 364 290 Q 369 330 374 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 364 290 Q 364 330 364 370;M 364 290 Q 374 330 369 370;M 364 290 Q 364 330 364 370" 
+                    dur="1.6s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 384 290 Q 379 330 374 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 384 290 Q 384 330 384 370;M 384 290 Q 394 330 389 370;M 384 290 Q 384 330 384 370" 
+                    dur="1.7s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 404 290 Q 409 330 414 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 404 290 Q 404 330 404 370;M 404 290 Q 414 330 409 370;M 404 290 Q 404 330 404 370" 
+                    dur="1.8s" repeatCount="indefinite"/>
+            </path>
+            
+            <path d="M 424 290 Q 419 330 414 370" 
+                  stroke="url(#tentacleGrad)" stroke-width="12" fill="none" stroke-linecap="round">
+                <animate attributeName="d" 
+                    values="M 424 290 Q 424 330 424 370;M 424 290 Q 434 330 429 370;M 424 290 Q 424 330 424 370" 
+                    dur="1.9s" repeatCount="indefinite"/>
+            </path>
+            </svg>
