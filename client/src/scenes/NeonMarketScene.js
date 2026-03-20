@@ -9,15 +9,11 @@ const WORLD_W = 1600;
 const WORLD_H = 900;
 
 export default class NeonMarketScene extends Phaser.Scene {
-  constructor() {
-    super('NeonMarketScene');
-  }
+  constructor() { super('NeonMarketScene'); }
 
   init(data) {
-    this.token = data.token;
-    this.username = data.username;
-    this.userId = data.userId;
-    this.character = data.character;
+    this.token = data.token; this.username = data.username;
+    this.userId = data.userId; this.character = data.character;
     this.remotePlayers = new Map();
   }
 
@@ -27,152 +23,164 @@ export default class NeonMarketScene extends Phaser.Scene {
     this._buildAreaNav();
 
     this.socket = connectSocket(this.token);
-    this.socket.on('connect', () => {
-      this.chatPanel?.addSystemMessage('Welcome to the Neon Market!', AREA_ID);
-    });
+    this.socket.on('connect', () => this.chatPanel?.addSystemMessage('Welcome to the Neon Market!', AREA_ID));
 
     this.chatPanel = new ChatPanel(this.socket, AREA_ID);
     this.chatPanel.setActiveArea(AREA_ID);
     this.emoteWheel = new EmoteWheel(this.socket);
-
     this._bindSocketEvents();
 
     this.cameras.main.setBounds(0, 0, WORLD_W, WORLD_H);
+    this.cameras.main.fadeIn(500);
 
-    this.moveIndicator = this.add.circle(0, 0, 6, 0xFF69B4, 0.7).setDepth(0).setVisible(false);
+    this.moveIndicator = this.add.star(0, 0, 5, 4, 10, 0xFF69B4, 0.8).setDepth(0).setVisible(false);
     this.input.on('pointerdown', (p) => {
       if (p.rightButtonDown()) return;
       this.moveIndicator.setPosition(p.worldX, p.worldY).setVisible(true);
-      this.time.delayedCall(600, () => this.moveIndicator.setVisible(false));
+      this.tweens.add({ targets: this.moveIndicator, scaleX: 0, scaleY: 0, alpha: 0, duration: 500, onComplete: () => this.moveIndicator.setVisible(false).setScale(1).setAlpha(0.8) });
     });
   }
 
   _buildWorld() {
-    const gfx = this.add.graphics();
+    // Tiled purple space background
+    this.add.tileSprite(0, 0, WORLD_W, WORLD_H, 'bg_market').setOrigin(0, 0).setDepth(-10);
 
-    // Cyberpunk night sky
-    gfx.fillGradientStyle(0x0d001a, 0x0d001a, 0x1a0030, 0x1a0030, 1);
-    gfx.fillRect(0, 0, WORLD_W, WORLD_H);
+    // Stars - warm toned for market atmosphere
+    const starKeys = ['star1', 'star2', 'star3'];
+    [[100,55],[250,40],[430,100],[680,28],[940,78],[1210,48],[1480,108],
+     [70,195],[480,175],[870,158],[1190,198],[1520,78]
+    ].forEach(([x, y], i) => {
+      const s = this.add.image(x, y, starKeys[i % 3])
+        .setDepth(-5).setAlpha(0.3 + Math.random() * 0.4)
+        .setTint(i % 2 === 0 ? 0xFF69B4 : 0xFFD700).setScale(0.5 + Math.random() * 0.6);
+      this.tweens.add({ targets: s, alpha: 0.1, duration: 900 + Math.random() * 1400, yoyo: true, repeat: -1, delay: Math.random() * 1800 });
+    });
 
-    // Distant city skyline
+    // Floating UFOs in market sky
+    [
+      { x: 200, y: 160, key: 'ufoRed',    tint: 0xFF4500, scale: 0.65, speed: 5500 },
+      { x: 800, y: 120, key: 'ufoYellow', tint: 0xFFD700, scale: 0.55, speed: 7000 },
+      { x: 1400,y: 170, key: 'ufoBlue',   tint: 0xFF69B4, scale: 0.6,  speed: 6200 },
+    ].forEach(({ x, y, key, tint, scale, speed }) => {
+      const ufo = this.add.image(x, y, key).setDepth(-2).setScale(scale).setTint(tint).setAlpha(0.8);
+      this.tweens.add({ targets: ufo, y: y + 16, duration: speed, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+      this.tweens.add({ targets: ufo, x: x + 55, duration: speed * 1.8, yoyo: true, repeat: -1, ease: 'Sine.easeInOut', delay: Math.random() * 800 });
+    });
+
+    const gfx = this.add.graphics().setDepth(1);
+
+    // Distant city skyline silhouette
     const buildings = [
-      [0, 600, 80, 300], [80, 650, 60, 250], [140, 580, 100, 320], [240, 620, 70, 280],
-      [310, 560, 90, 340], [400, 640, 65, 260], [465, 590, 85, 310], [550, 660, 55, 240],
-      [605, 570, 95, 330], [700, 630, 75, 270], [775, 600, 80, 300], [855, 650, 60, 250],
-      [915, 580, 90, 320], [1005, 620, 70, 280], [1075, 560, 100, 340], [1175, 640, 65, 260],
-      [1240, 590, 85, 310], [1325, 660, 55, 240], [1380, 570, 90, 330], [1470, 630, 75, 270],
-      [1545, 600, 55, 300]
+      [0,650,75,250],[75,680,60,220],[135,615,95,285],[230,650,70,250],
+      [300,595,88,305],[388,665,62,235],[450,620,82,280],[532,672,55,228],
+      [587,600,90,300],[677,640,72,260],[749,615,78,285],[827,660,58,240],
+      [885,595,88,305],[973,635,68,265],[1041,575,96,325],[1137,650,63,250],
+      [1200,605,82,295],[1282,668,53,232],[1335,585,88,315],[1423,645,72,255],[1495,615,55,285]
     ];
-
     buildings.forEach(([x, y, w, h]) => {
       gfx.fillStyle(0x0a0015, 1);
       gfx.fillRect(x, y, w, h);
-      // Random lit windows
-      for (let wy = y + 20; wy < y + h - 10; wy += 20) {
-        for (let wx = x + 8; wx < x + w - 8; wx += 14) {
+      // Neon-lit windows
+      for (let wy = y + 18; wy < y + h - 8; wy += 18) {
+        for (let wx = x + 6; wx < x + w - 6; wx += 12) {
           if ((wx * wy) % 3 !== 0) {
-            const winColor = [(wx * wy) % 7 === 0 ? 0xFF69B4 : (wx + wy) % 5 === 0 ? 0x00FFFF : 0xFFD700][0];
-            gfx.fillStyle(winColor, 0.6);
-            gfx.fillRect(wx, wy, 8, 10);
+            const c = (wx + wy) % 5 === 0 ? 0xFF69B4 : (wx * wy) % 7 === 0 ? 0x00FFFF : (wx + wy) % 4 === 0 ? 0xFFD700 : 0x7B68EE;
+            gfx.fillStyle(c, 0.55);
+            gfx.fillRect(wx, wy, 7, 9);
           }
         }
       }
     });
 
     // Ground / street
-    gfx.fillStyle(0x0d001a, 1);
+    gfx.fillStyle(0x0d001a, 0.96);
     gfx.fillRect(0, WORLD_H - 100, WORLD_W, 100);
-
-    // Neon street lights
-    gfx.fillStyle(0xFF69B4, 0.4);
-    gfx.fillRect(0, WORLD_H - 104, WORLD_W, 3);
+    // Neon street lines
+    gfx.fillStyle(0xFF69B4, 0.5);
+    gfx.fillRect(0, WORLD_H - 102, WORLD_W, 3);
     gfx.fillStyle(0x00FFFF, 0.3);
-    gfx.fillRect(0, WORLD_H - 108, WORLD_W, 2);
+    gfx.fillRect(0, WORLD_H - 106, WORLD_W, 2);
 
     // Market stalls
     const stalls = [
-      { x: 200, color: 0xFF69B4, label: '🍄 Snacks' },
-      { x: 500, color: 0x00FFFF, label: '🔮 Items' },
-      { x: 800, color: 0xFFD700, label: '👗 Fashion' },
-      { x: 1100, color: 0x9B59B6, label: '🎮 Games' },
-      { x: 1400, color: 0x00FF88, label: '🌿 Plants' }
+      { x: 200, color: 0xFF69B4, emoji: '🍄', name: 'Snacks' },
+      { x: 500, color: 0x00FFFF, emoji: '🔮', name: 'Items' },
+      { x: 800, color: 0xFFD700, emoji: '👗', name: 'Fashion' },
+      { x: 1100,color: 0x9B59B6, emoji: '🎮', name: 'Games' },
+      { x: 1400,color: 0x00FF88, emoji: '🌿', name: 'Plants' }
     ];
-
-    stalls.forEach(({ x, color, label }) => {
-      // Stall roof
+    stalls.forEach(({ x, color, emoji, name }) => {
+      // Canopy
       gfx.fillStyle(color, 0.9);
-      gfx.fillTriangle(x - 70, WORLD_H - 100, x + 70, WORLD_H - 100, x, WORLD_H - 200);
-      // Stall body
-      gfx.fillStyle(0x0d001a, 1);
-      gfx.fillRect(x - 60, WORLD_H - 200, 120, 100);
-      // Glow border
-      gfx.lineStyle(2, color, 0.8);
-      gfx.strokeRect(x - 60, WORLD_H - 200, 120, 100);
-      // Label
-      this.add.text(x, WORLD_H - 150, label, {
-        fontSize: '13px', fill: '#ffffff', stroke: '#000', strokeThickness: 3, align: 'center'
-      }).setOrigin(0.5, 0.5);
+      gfx.fillTriangle(x - 72, WORLD_H - 100, x + 72, WORLD_H - 100, x, WORLD_H - 208);
+      gfx.fillStyle(0x000000, 0.3);
+      gfx.fillTriangle(x - 72, WORLD_H - 100, x - 30, WORLD_H - 100, x - 50, WORLD_H - 160);
+      // Booth body
+      gfx.fillStyle(0x0a0015, 0.95);
+      gfx.fillRect(x - 60, WORLD_H - 208, 120, 108);
+      gfx.lineStyle(2, color, 0.9);
+      gfx.strokeRect(x - 60, WORLD_H - 208, 120, 108);
+      // Counter
+      gfx.fillStyle(color, 0.35);
+      gfx.fillRect(x - 60, WORLD_H - 130, 120, 30);
+      // Glow sign on top
+      gfx.fillStyle(color, 0.15);
+      gfx.fillRect(x - 50, WORLD_H - 200, 100, 30);
+      // Stall label
+      this.add.text(x, WORLD_H - 155, `${emoji} ${name}`, {
+        fontSize: '12px', fontStyle: 'bold', fill: '#ffffff', stroke: '#000', strokeThickness: 3
+      }).setOrigin(0.5, 0.5).setDepth(3);
     });
 
-    // Overhead neon signs
-    const signs = [
-      { x: 350, y: 200, text: '✨ ALIEN EMPORIUM ✨', color: '#FF69B4' },
-      { x: 900, y: 180, text: '🛸 COSMIC BAZAAR 🛸', color: '#00FFFF' },
-      { x: 1300, y: 220, text: '🌌 STAR GOODS 🌌', color: '#FFD700' }
-    ];
-
-    signs.forEach(({ x, y, text, color }) => {
-      this.add.text(x, y, text, {
-        fontSize: '16px', fill: color, stroke: '#000', strokeThickness: 3,
-        fontStyle: 'bold', shadow: { blur: 10, color, fill: true }
-      }).setOrigin(0.5, 0.5);
+    // Neon overhead signs
+    [
+      { x: 350, y: 210, text: '✨ ALIEN EMPORIUM ✨', color: '#FF69B4' },
+      { x: 900, y: 190, text: '🛸 COSMIC BAZAAR 🛸',  color: '#00FFFF' },
+      { x: 1300,y: 225, text: '🌌 STAR GOODS 🌌',     color: '#FFD700' }
+    ].forEach(({ x, y, text, color }) => {
+      const sign = this.add.text(x, y, text, {
+        fontSize: '17px', fontStyle: 'bold', fill: color,
+        stroke: '#000', strokeThickness: 3,
+        shadow: { blur: 14, color, fill: true }
+      }).setOrigin(0.5, 0.5).setDepth(3);
+      this.tweens.add({ targets: sign, alpha: 0.65, duration: 1200 + Math.random() * 600, yoyo: true, repeat: -1, ease: 'Sine.easeInOut', delay: Math.random() * 400 });
     });
 
-    // Area label
-    this.add.text(WORLD_W / 2, 30, '🌆 NEON MARKET', {
-      fontSize: '20px', fill: '#FF69B4', stroke: '#000', strokeThickness: 4, fontStyle: 'bold'
-    }).setOrigin(0.5, 0);
+    this.add.text(WORLD_W / 2, 28, '🌆  NEON MARKET', {
+      fontSize: '22px', fontStyle: 'bold', fill: '#f9a8d4',
+      stroke: '#0a0a1a', strokeThickness: 6,
+      shadow: { blur: 14, color: '#FF69B4', fill: true }
+    }).setOrigin(0.5, 0).setDepth(10);
 
-    // Spawn player
-    this.localPlayer = new AlienPlayer(this, WORLD_W / 2, WORLD_H - 180, {
-      ...this.character, username: this.username
-    });
+    this.localPlayer = new AlienPlayer(this, WORLD_W / 2, WORLD_H - 180, { ...this.character, username: this.username });
     this.localPlayer.setDepth(5);
-    this.cameras.main.startFollow(this.localPlayer, true, 0.1, 0.1);
+    this.cameras.main.startFollow(this.localPlayer, true, 0.08, 0.08);
   }
 
   _buildPortals() {
     this.portals = [
-      { x: 80, y: WORLD_H - 140, label: '🌍 Hub Planet', targetScene: 'HubPlanetScene', area: 'hub', color: 0xa78bfa },
-      { x: WORLD_W - 80, y: WORLD_H - 140, label: '💎 Crystal Cave', targetScene: 'CrystalCaveScene', area: 'crystal_cave', color: 0x00BFFF }
+      { x: 80, y: WORLD_H - 140, label: '🌍 Hub Planet', targetScene: 'HubPlanetScene', area: 'hub', tint: 0xa78bfa },
+      { x: WORLD_W - 80, y: WORLD_H - 140, label: '💎 Crystal Cave', targetScene: 'CrystalCaveScene', area: 'crystal_cave', tint: 0x00BFFF }
     ];
-
     this.portals.forEach(portal => {
-      const gfx = this.add.graphics();
-      gfx.lineStyle(4, portal.color, 0.8);
-      gfx.strokeCircle(0, 0, 32);
-      gfx.lineStyle(2, portal.color, 0.5);
-      gfx.strokeCircle(0, 0, 24);
-      for (let i = 0; i < 6; i++) {
-        const angle = (i / 6) * Math.PI * 2;
-        gfx.lineStyle(2, portal.color, 0.6);
-        gfx.strokePoints([new Phaser.Geom.Point(0, 0), new Phaser.Geom.Point(Math.cos(angle) * 22, Math.sin(angle) * 22)], false);
-      }
-      gfx.fillStyle(portal.color, 0.3);
-      gfx.fillCircle(0, 0, 16);
-      gfx.setPosition(portal.x, portal.y);
+      const ufo = this.add.image(portal.x, portal.y - 20, 'ufoRed').setTint(portal.tint).setDepth(3).setScale(0.9);
+      this.tweens.add({ targets: ufo, y: portal.y - 32, duration: 1400, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' });
+      this.tweens.add({ targets: ufo, angle: 360, duration: 8000, repeat: -1, ease: 'Linear' });
 
-      const label = this.add.text(portal.x, portal.y + 45, portal.label, {
-        fontSize: '12px', fill: '#ffffff', stroke: '#000', strokeThickness: 3, align: 'center'
-      }).setOrigin(0.5, 0);
+      const gfx = this.add.graphics().setDepth(2);
+      gfx.lineStyle(3, portal.tint, 0.7);
+      gfx.strokeEllipse(portal.x, portal.y + 10, 72, 18);
+      gfx.fillStyle(portal.tint, 0.15);
+      gfx.fillEllipse(portal.x, portal.y + 10, 72, 18);
 
-      this.tweens.add({ targets: gfx, angle: 360, duration: 8000, repeat: -1, ease: 'Linear' });
+      const label = this.add.text(portal.x, portal.y + 30, portal.label, {
+        fontSize: '13px', fontStyle: 'bold', fill: '#ffffff', stroke: '#000000', strokeThickness: 4
+      }).setOrigin(0.5, 0).setDepth(3);
 
-      gfx.setInteractive(new Phaser.Geom.Circle(0, 0, 32), Phaser.Geom.Circle.Contains);
-      gfx.on('pointerover', () => label.setStyle({ fill: '#a78bfa' }));
-      gfx.on('pointerout', () => label.setStyle({ fill: '#ffffff' }));
-      gfx.on('pointerdown', () => this._travelTo(portal));
-      gfx.input.cursor = 'pointer';
+      ufo.setInteractive();
+      ufo.on('pointerover', () => { ufo.setScale(1.05); label.setStyle({ fill: '#a78bfa' }); this.input.setDefaultCursor('pointer'); });
+      ufo.on('pointerout',  () => { ufo.setScale(0.9);  label.setStyle({ fill: '#ffffff' }); this.input.setDefaultCursor('default'); });
+      ufo.on('pointerdown', () => this._travelTo(portal));
     });
   }
 
@@ -183,9 +191,7 @@ export default class NeonMarketScene extends Phaser.Scene {
       { id: 'crystal_cave', scene: 'CrystalCaveScene', label: '💎 Cave' },
       { id: 'neon_market', scene: 'NeonMarketScene', label: '🌆 Market' }
     ];
-    nav.innerHTML = areas.map(a => `
-      <button data-scene="${a.scene}" data-area="${a.id}" class="${a.id === AREA_ID ? 'active' : ''}">${a.label}</button>
-    `).join('');
+    nav.innerHTML = areas.map(a => `<button data-scene="${a.scene}" data-area="${a.id}" class="${a.id === AREA_ID ? 'active' : ''}">${a.label}</button>`).join('');
     nav.querySelectorAll('button').forEach(btn => {
       btn.addEventListener('click', () => {
         const portal = this.portals?.find(p => p.area === btn.dataset.area);
@@ -198,11 +204,8 @@ export default class NeonMarketScene extends Phaser.Scene {
     if (portal.area === AREA_ID) return;
     this.cameras.main.fadeOut(400, 0, 0, 0);
     this.time.delayedCall(400, () => {
-      this.chatPanel?.destroy();
-      this.socket?.off();
-      this.scene.start(portal.targetScene, {
-        token: this.token, username: this.username, userId: this.userId, character: this.character
-      });
+      this.chatPanel?.destroy(); this.socket?.off();
+      this.scene.start(portal.targetScene, { token: this.token, username: this.username, userId: this.userId, character: this.character });
     });
   }
 
@@ -220,39 +223,38 @@ export default class NeonMarketScene extends Phaser.Scene {
     });
     this.socket.on('player:left', ({ id }) => {
       const rp = this.remotePlayers.get(id);
-      if (rp) {
-        this.chatPanel?.addSystemMessage(`${rp.playerData.username} left`, AREA_ID);
-        rp.destroy();
-        this.remotePlayers.delete(id);
-        this.chatPanel?.setOnlineCount(this.remotePlayers.size + 1);
-      }
+      if (rp) { this.chatPanel?.addSystemMessage(`${rp.playerData.username} left`, AREA_ID); rp.destroy(); this.remotePlayers.delete(id); this.chatPanel?.setOnlineCount(this.remotePlayers.size + 1); }
     });
-    this.socket.on('player:moved', ({ id, x, y }) => {
-      if (id === this.userId) return;
-      this.remotePlayers.get(id)?.moveTo(x, y);
-    });
+    this.socket.on('player:moved', ({ id, x, y }) => { if (id !== this.userId) this.remotePlayers.get(id)?.moveTo(x, y); });
     this.socket.on('chat:received', ({ id, text }) => {
-      if (id === this.userId) return;
-      this.remotePlayers.get(id)?.showChatBubble(text);
+      if (id === this.userId) this._showLocalChatBubble(text);
+      else this.remotePlayers.get(id)?.showChatBubble(text);
     });
     this.socket.on('emote:played', ({ id, emoteId }) => {
-      if (id === this.userId) { this._showLocalEmote(emoteId); return; }
-      this.remotePlayers.get(id)?.showEmote(emoteId);
+      if (id === this.userId) this._showLocalEmote(emoteId);
+      else this.remotePlayers.get(id)?.showEmote(emoteId);
     });
   }
 
   _spawnRemotePlayer(playerData) {
     if (this.remotePlayers.has(playerData.id)) this.remotePlayers.get(playerData.id).destroy();
-    const rp = new RemotePlayer(this, playerData);
-    this.remotePlayers.set(playerData.id, rp);
+    this.remotePlayers.set(playerData.id, new RemotePlayer(this, playerData));
+  }
+
+  _showLocalChatBubble(text) {
+    if (!this.localPlayer) return;
+    const display = text.length > 40 ? text.slice(0, 40) + '…' : text;
+    const bubble = this.add.text(this.localPlayer.x, this.localPlayer.y - 72, display, {
+      fontSize: '12px', fill: '#ffffff', backgroundColor: '#0d001acc',
+      padding: { x: 8, y: 5 }, wordWrap: { width: 160 }, align: 'center'
+    }).setOrigin(0.5, 1).setDepth(10);
+    this.time.delayedCall(4000, () => this.tweens.add({ targets: bubble, alpha: 0, duration: 400, onComplete: () => bubble.destroy() }));
   }
 
   _showLocalEmote(emoteId) {
-    const EMOTE_MAP = { wave: '👋', dance: '💃', laugh: '😂', cry: '😭', heart: '❤️', think: '🤔', zzz: '💤', alien: '👽' };
+    const EMOTE_MAP = { wave:'👋',dance:'💃',laugh:'😂',cry:'😭',heart:'❤️',think:'🤔',zzz:'💤',alien:'👽' };
     if (!this.localPlayer) return;
-    const popup = this.add.text(this.localPlayer.x, this.localPlayer.y - 90, EMOTE_MAP[emoteId] || '?', {
-      fontSize: '28px', align: 'center'
-    }).setOrigin(0.5, 1).setDepth(10);
+    const popup = this.add.text(this.localPlayer.x, this.localPlayer.y - 90, EMOTE_MAP[emoteId] || '?', { fontSize: '28px' }).setOrigin(0.5, 1).setDepth(10);
     this.tweens.add({ targets: popup, y: this.localPlayer.y - 120, alpha: 0, duration: 2000, ease: 'Cubic.easeOut', onComplete: () => popup.destroy() });
   }
 

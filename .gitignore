@@ -5,3 +5,9 @@ node_modules/
 *.db-shm
 dist/
 .DS_Store
+
+# Raw downloaded asset packs (too large for git, keep processed assets only)
+client/public/assets/raw/
+client/public/assets/alien-ufo/
+client/public/assets/space-shooter/
+client/public/assets/ui-sci-fi/
