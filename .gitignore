@@ -11,3 +11,7 @@ client/public/assets/raw/
 client/public/assets/alien-ufo/
 client/public/assets/space-shooter/
 client/public/assets/ui-sci-fi/
+
+# Stray downloaded files in repo root
+*.zip
+alien-planet-tileset.png
