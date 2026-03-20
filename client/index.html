@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlienJam 🛸</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a1a;
+      overflow: hidden;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #e0e0ff;
+    }
+
+    #app {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+    }
+
+    #game-container {
+      flex: 1;
+      position: relative;
+    }
+
+    #game-container canvas {
+      display: block;
+    }
+
+    /* Chat panel */
+    #chat-panel {
+      width: 280px;
+      height: 100vh;
+      background: #1a1a2e;
+      border-left: 1px solid #2d2d5e;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+    }
+
+    #chat-areas {
+      display: flex;
+      background: #12122a;
+      border-bottom: 1px solid #2d2d5e;
+    }
+
+    #chat-areas button {
+      flex: 1;
+      padding: 8px 4px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #8888bb;
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    #chat-areas button.active {
+      color: #a78bfa;
+      border-bottom-color: #a78bfa;
+    }
+
+    #chat-areas button:hover {
+      color: #c4b5fd;
+    }
+
+    #chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    #chat-messages::-webkit-scrollbar { width: 4px; }
+    #chat-messages::-webkit-scrollbar-track { background: transparent; }
+    #chat-messages::-webkit-scrollbar-thumb { background: #3d3d6e; border-radius: 2px; }
+
+    .chat-message {
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .chat-message .author {
+      font-weight: 600;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .chat-message .text {
+      color: #d0d0ee;
+      word-break: break-word;
+    }
+
+    .chat-message.system {
+      color: #6666aa;
+      font-style: italic;
+      font-size: 11px;
+      text-align: center;
+    }
+
+    #chat-input-row {
+      padding: 8px;
+      border-top: 1px solid #2d2d5e;
+      display: flex;
+      gap: 6px;
+    }
+
+    #chat-input {
+      flex: 1;
+      background: #12122a;
+      border: 1px solid #3d3d6e;
+      border-radius: 6px;
+      padding: 8px 10px;
+      color: #e0e0ff;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    #chat-input:focus { border-color: #a78bfa; }
+    #chat-input::placeholder { color: #4444aa; }
+
+    #chat-send {
+      background: #5b21b6;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.2s;
+    }
+
+    #chat-send:hover { background: #7c3aed; }
+
+    /* Online count badge */
+    #online-badge {
+      padding: 6px 8px;
+      font-size: 11px;
+      color: #6666aa;
+      border-bottom: 1px solid #2d2d5e;
+    }
+
+    #online-badge span {
+      color: #34d399;
+      font-weight: 600;
+    }
+
+    /* Area nav overlay */
+    #area-nav {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 20;
+      background: rgba(10, 10, 26, 0.8);
+      padding: 8px 12px;
+      border-radius: 24px;
+      border: 1px solid #2d2d5e;
+      backdrop-filter: blur(8px);
+    }
+
+    #area-nav button {
+      background: none;
+      border: 1px solid #3d3d6e;
+      border-radius: 16px;
+      padding: 6px 14px;
+      color: #8888bb;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    #area-nav button.active, #area-nav button:hover {
+      background: #5b21b6;
+      border-color: #7c3aed;
+      color: white;
+    }
+
+    /* Emote wheel */
+    #emote-wheel {
+      display: none;
+      position: absolute;
+      z-index: 30;
+      background: rgba(10, 10, 26, 0.92);
+      border: 1px solid #3d3d6e;
+      border-radius: 12px;
+      padding: 8px;
+      gap: 6px;
+      flex-wrap: wrap;
+      width: 160px;
+    }
+
+    #emote-wheel.visible { display: flex; }
+
+    #emote-wheel button {
+      flex: 1 0 30%;
+      background: #1a1a2e;
+      border: 1px solid #2d2d5e;
+      border-radius: 8px;
+      padding: 8px 4px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+      line-height: 1;
+    }
+
+    #emote-wheel button:hover {
+      background: #2d2d5e;
+      transform: scale(1.15);
+    }
+
+    /* Auth + char create overlay */
+    #ui-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      background: rgba(10, 10, 26, 0.95);
+    }
+
+    #ui-overlay.hidden { display: none; }
+
+    .panel {
+      background: #1a1a2e;
+      border: 1px solid #3d3d6e;
+      border-radius: 16px;
+      padding: 32px;
+      width: 360px;
+      max-width: 90vw;
+    }
+
+    .panel h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #a78bfa;
+    }
+
+    .panel p.subtitle {
+      font-size: 13px;
+      color: #6666aa;
+      margin-bottom: 24px;
+    }
+
+    .panel label {
+      display: block;
+      font-size: 12px;
+      color: #8888bb;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .panel input[type="text"],
+    .panel input[type="password"] {
+      width: 100%;
+      background: #12122a;
+      border: 1px solid #3d3d6e;
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #e0e0ff;
+      font-size: 14px;
+      outline: none;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .panel input:focus { border-color: #a78bfa; }
+
+    .panel .btn-primary {
+      width: 100%;
+      background: #5b21b6;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      color: white;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+
+    .panel .btn-primary:hover { background: #7c3aed; }
+
+    .panel .btn-secondary {
+      width: 100%;
+      background: transparent;
+      border: 1px solid #3d3d6e;
+      border-radius: 8px;
+      padding: 10px;
+      color: #8888bb;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .panel .btn-secondary:hover { border-color: #a78bfa; color: #a78bfa; }
+
+    .panel .error {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: 6px;
+      padding: 8px 12px;
+      color: #fca5a5;
+      font-size: 13px;
+      margin-bottom: 16px;
+      display: none;
+    }
+
+    .panel .error.visible { display: block; }
+
+    /* Species picker */
+    .species-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .species-btn {
+      aspect-ratio: 1;
+      background: #12122a;
+      border: 2px solid #2d2d5e;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.2s;
+      padding: 8px 4px;
+    }
+
+    .species-btn canvas {
+      width: 48px;
+      height: 48px;
+    }
+
+    .species-btn span {
+      font-size: 10px;
+      color: #8888bb;
+      text-transform: capitalize;
+    }
+
+    .species-btn.selected {
+      border-color: #a78bfa;
+      background: #2d1b69;
+    }
+
+    .species-btn:hover { border-color: #6d28d9; }
+
+    /* Color picker row */
+    .color-picker-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .color-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .color-swatch:hover { transform: scale(1.15); }
+    .color-swatch.selected { border-color: white; transform: scale(1.1); }
+
+    /* Accessories */
+    .accessories-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .accessory-btn {
+      background: #12122a;
+      border: 1px solid #2d2d5e;
+      border-radius: 16px;
+      padding: 6px 12px;
+      color: #8888bb;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .accessory-btn.selected {
+      background: #2d1b69;
+      border-color: #a78bfa;
+      color: #c4b5fd;
+    }
+
+    /* Loading / connecting state */
+    #loading-screen {
+      position: absolute;
+      inset: 0;
+      background: #0a0a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      gap: 16px;
+    }
+
+    #loading-screen.hidden { display: none; }
+
+    #loading-screen h1 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #a78bfa;
+      letter-spacing: 2px;
+    }
+
+    #loading-screen p {
+      color: #6666aa;
+      font-size: 14px;
+    }
+
+    .pulse {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #5b21b6;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.8); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <h1>🛸 ALIENJAM</h1>
+    <div class="pulse"></div>
+    <p>Warping in...</p>
+  </div>
+
+  <div id="ui-overlay" class="hidden"></div>
+
+  <div id="app" style="display:none">
+    <div id="game-container">
+      <div id="area-nav"></div>
+      <div id="emote-wheel"></div>
+    </div>
+    <div id="chat-panel">
+      <div id="online-badge">Online: <span id="online-count">0</span></div>
+      <div id="chat-areas"></div>
+      <div id="chat-messages"></div>
+      <div id="chat-input-row">
+        <input id="chat-input" type="text" placeholder="Message..." maxlength="200" autocomplete="off" />
+        <button id="chat-send">➤</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
